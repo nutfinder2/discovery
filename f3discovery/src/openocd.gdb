@@ -1,3 +1,6 @@
+# GEF fixup
+pi ARM.flag_register='$xPSR'
+
 # Connect to gdb remote server
 target remote :3333
 
