@@ -62,7 +62,11 @@ register, but the *release* (optimized) program only has one.
 We can check that using `objdump` and capture the output to `out.asm`:
 
 ``` console
-# same as cargo objdump -- -d --no-show-raw-insn --print-imm-hex --source target/thumbv7em-none-eabihf/debug/registers
+cargo objdump -- -d --no-show-raw-insn --print-imm-hex --source target/thumbv7em-none-eabihf/debug/registers > debug.txt
+```
+
+This is the same as:
+``` console
 cargo objdump --bin registers -- -d --no-show-raw-insn --print-imm-hex --source > debug.txt
 ```
 
@@ -217,5 +221,5 @@ Program received signal SIGINT, Interrupt.
 0x08000270 in registers::__cortex_m_rt_main ()
     at ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core/src/ptr/mod.rs:1124
 1124            intrinsics::volatile_store(dst, src);
-(gdb) 
+(gdb)
 ```
